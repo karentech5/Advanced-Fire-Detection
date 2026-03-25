@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emergency: #dc2626;
+  --color-safe: #10b981;
+  --color-slate-950: #020617;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background-color: #020617;
+    color: #f1f5f9;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 4px #dc2626, inset 0 0 0 4px #dc2626; opacity: 1; }
+  50%       { box-shadow: 0 0 0 8px #dc262680, inset 0 0 0 8px #dc262650; opacity: 0.7; }
+}
+
+@keyframes siren-bounce {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  25%       { transform: translateY(-8px) rotate(10deg); }
+  75%       { transform: translateY(-4px) rotate(-5deg); }
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.alert-border  { animation: pulse-border 0.8s ease-in-out infinite; }
+.siren-bounce  { animation: siren-bounce 0.5s ease-in-out infinite; }
+.live-pulse    { animation: live-pulse 1.2s ease-in-out infinite; }
